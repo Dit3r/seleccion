@@ -1,0 +1,450 @@
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/lib/bootstrap-3-complilado/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/template/tpl2-sb/css/flujo.css" />
+<link rel="stylesheet" href="<?php echo site_url(); ?>assets/template/tpl2-sb/css/custom.css" type="text/css" />
+<style type="text/css">
+.classFinal {
+	width: 120px;
+	height: 60px;
+	text-align: center;
+}
+</style>
+
+<!-- ::::::::::::::NUEVOS OVALOS TITULOS INICIO::::::::::::::::::: -->
+<div class="row" style="margin-top: 12px;">
+	<div class="col-md-5 col-md-offset-1">
+		<p class="nroSolicitud"><span>Traslado : <?php echo $idSolicitud; ?></span></p>
+	</div>
+	<div class="col-md-12"  style="text-align: center; font-size: 18px; font-weight: bold;"><?php echo $titlePage; ?></div>
+	<div class="col-md-6 volver" style="cursor: pointer; text-align: right; padding-right: 30px;">
+		<a href="<?php echo site_url()."traslado/".$this->uri->segment(2); ?>"><i class="fa fa-mail-reply"></i><span> Volver</span></a>
+	</div>
+</div>
+<!-- ::::::::::::::NUEVOS OVALOS TITULOS FIN::::::::::::::::::: -->
+<!-- /////etapa inicio -->
+<div id="etapa" class="row bloquecentrado" style="max-width: 1200px; margin-bottom: 12px; margin-left: auto; margin-right: auto;">
+	<div class="col-md-24">
+		<ul class="list-inline">
+<!-- para el count sirve cualquiera de los 4, porque todos tienen la misma cantidad de elementos. En este caso puse $etapa["title"]  -->
+		<?php 
+			$conta = 0;
+			foreach ($ovalos as $indice => $ovalo): 
+		?>
+			<li>
+				<div class="blocketapa <?php echo (($ovalo->nroEtapa == $this->uri->segment(4) && ($ovalo->correlativo == $this->uri->segment(5)) )) ? 'seleccionado':'';?>">
+				<?php if ($conta != 0) : ?>
+					<div class="izq left">
+					<span class="glyphicon glyphicon-arrow-right"></span>
+					</div>
+				<?php endif; ?>
+					<div class="der left">
+						<div class="title"><?php echo $ovalo->title; ?></div>
+						<a class="toOvalo" data-etapa="<?php echo $ovalo->nroEtapa; ?>"  href="<?php echo site_url(); ?>etapa/historico/<?php echo $idSolicitud; ?>/<?php echo $ovalo->nroEtapa; ?>/<?php echo $ovalo->correlativo; ?>/<?php echo $this->uri->segment(6); ?>">
+							<div class="oval <?php echo ($ovalo->estado == "A") ? 'destacado':''; ?>" style="<?php echo ($ovalo->estado == "N") ? 'background-color:#FFDB00':''; ?> ">
+								<div class="contenidoOvalo">
+									<?php echo $ovalo->txtOvalo; ?>
+								</div>
+							</div>
+						</a>				
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</li>	
+		<?php
+		
+		if (($ovalo->nroEtapa == $this->uri->segment(4)) && ($ovalo->estado == "A")) {
+			$CI =& get_instance();
+			$CI->db = $this->load->database('bdSeleccionProd', true);
+			$solicitud = $this->uri->segment(3);
+
+			//query creada para hacer alimentar a la funcion select pkg_seleccion.valida_rut_jefatura (11,11477812,94) from dual;
+			$strCorrelativo = "
+								SELECT CORRELATIVO 
+								FROM SEL_WF_LOG_TRASLADO 
+								WHERE WF_KEY = ".$solicitud." AND correlativo = (	SELECT max(correlativo) 
+                                          									FROM SEL_WF_LOG_TRASLADO WHERE WF_KEY = ".$solicitud."
+                                        										) 
+								ORDER  BY CORRELATIVO			
+			";
+			$strCorrelativo = $CI->db->query($strCorrelativo)->result();
+			$correlativo = $strCorrelativo[0]->CORRELATIVO;
+
+			$strQueryBtns = "select PKG_SELECCION.trae_info_etapa (".$solicitud.", ".$ovalo->nroEtapa.", ".$correlativo.") as ETAPA_LOG from dual";
+
+			$strQueryBtns = $CI->db->query($strQueryBtns)->result();
+			$strQueryBtns = json_decode($strQueryBtns[0]->ETAPA_LOG);
+
+			//::como string se me muestra {"sol_rut":"999","sol_respon":"Jefe Local Destino","sol_inicio_etapa":"29-07-2014","sol_termino_etapa":"","sol_accion":"","sol_obs_etapa":""}
+			//::despues de transformar el JSON a PHP puedo llamar a al rut como $strQueryBtns->sol_rut
+
+			//query creada para hacer alimentar a la funcion select pkg_seleccion.valida_rut_jefatura (11,11477812,94) from dual;
+			$strQueryForJef = "SELECT EMPRESA, CC_ORIGEN, CC_DESTINO FROM SEL_WF_SOLICITUD_TRASLADO WHERE  WF_KEY = ".$this->uri->segment(3)."";
+			$strQueryForJef = $CI->db->query($strQueryForJef)->result();	
+			
+			if (isset($_SESSION['rut'])) {
+				if ($strQueryBtns->sol_rut == $_SESSION['rut']) {
+					//inicio trae string con informacion de botones de accion, para poder construir los botones de accion
+					$flujo = $this->uri->segment(6);
+					$strQuery ="select pkg_seleccion.trae_acciones_etapa_actual ('TRAS',".$flujo.",".$ovalo->nroEtapa.") as BOTONES from dual";
+					$strQuery = $CI->db->query($strQuery)->result();
+					$respuesta = json_decode($strQuery[0]->BOTONES);
+				
+					$htmlBtn ='';
+					foreach ($respuesta as $indice => $val) {
+						if ($val->name != '') {
+							if ($val->name == 'VIA') {
+								$htmlBtn .= "<a name=\"".$val->name."\" id=\"".$val->name."\" class=\"btn btn-info funcion\">".$val->title."</a>\n";
+								continue;
+							} 
+							if ($val->name == 'VIC') {
+								$htmlBtn .= "<a name=\"".$val->name."\" id=\"".$val->name."\" class=\"btn btn-info funcion\">".$val->title."</a>\n";
+								continue;
+							}							
+							switch ($val->tipo) {
+							    case 'ACCION' :
+							        $htmlBtn .= "<button name=\"".$val->name."\" id=\"".$val->name."\" type=\"button\" class=\"btn btn-info accion\" value=\"".$val->name."\">".$val->title."</button>\n";
+							        break;
+							    case 'FUNCION' :
+							        $htmlBtn .= "<button name=\"".$val->name."\" id=\"".$val->name."\" type=\"button\" class=\"btn btn-info funcion\" value=\"".$val->name."\">".$val->title."</button>\n";
+							        break;
+							}
+						}
+					} //fin foreach
+					if ($correlativo != $this->uri->segment(5)) {
+						$htmlBtn = '';
+					}
+					$datosForm['botones'] = $htmlBtn;
+					$datosForm['activar'] = 'si';
+					//fin trae string con informacion de botones de accion, para poder construir los botones de accion
+
+				} elseif ($strQueryBtns->sol_rut == "888" || $strQueryBtns->sol_rut == "999") {
+					if ($strQueryBtns->sol_rut == "888") {
+						//codigo del centro de costo de origen
+						$jefeLocal = $strQueryForJef[0]->CC_ORIGEN;
+					}
+					if ($strQueryBtns->sol_rut == "999") {
+						//codigo del centro de costo de destino
+						$jefeLocal = $strQueryForJef[0]->CC_DESTINO;
+					}					
+					$strQueryValJef = "select pkg_seleccion.valida_rut_jefatura (".$strQueryForJef[0]->EMPRESA.",".$_SESSION['rut'].",".$jefeLocal.") VALIDA_JEFATURA from dual";
+					$strQueryValJef = $CI->db->query($strQueryValJef)->result();
+					//::me arrojará S o NULL::$strQueryValJef[0]->VALIDA_JEFATURA; 
+
+					//inicio trae string con informacion de botones de accion, para poder construir los botones de accion
+					$flujo = $this->uri->segment(6);
+					$strQuery ="select pkg_seleccion.trae_acciones_etapa_actual ('TRAS',".$flujo.",".$ovalo->nroEtapa.") as BOTONES from dual";
+					$strQuery = $CI->db->query($strQuery)->result();
+					$respuesta = json_decode($strQuery[0]->BOTONES);
+				
+					$htmlBtn ='';
+					if ($strQueryValJef[0]->VALIDA_JEFATURA == "S") {
+						foreach ($respuesta as $indice => $val) {
+							if ($val->name != '') {
+								switch ($val->tipo) {
+								    case 'ACCION' :
+								        $htmlBtn .= "<button name=\"".$val->name."\" id=\"".$val->name."\" type=\"button\" class=\"btn btn-info accion\" value=\"".$val->name."\">".$val->title."</button>\n";
+								        break;
+								    case 'FUNCION' :
+								        $htmlBtn .= "<button name=\"".$val->name."\" id=\"".$val->name."\" type=\"button\" class=\"btn btn-info funcion\" value=\"".$val->name."\">".$val->title."</button>\n";
+								        break;
+								}
+								
+							}
+						} //fin foreach
+						$datosForm['activar'] = 'si';
+					}
+					//si existe la variabla activar no coloca disabled el textarea(coloca una cadena vasia)
+					if (isset($datosForm['activar'])) {
+						if ($datosForm['activar'] == 'si') {
+							$datosForm['textarea'] = '';
+						}
+					} else {
+						$datosForm['textarea'] = 'disabled="disabled"';
+					}
+					$datosForm['botones'] = $htmlBtn;
+					$datosForm['activar'] = 'si';
+					//fin trae string con informacion de botones de accion, para poder construir los botones de accion		
+
+				}//fin si sol_rut es 999
+			}//fin si existe la variable de sesion rut
+		} else {
+			if (isset($datosForm['activar'])) {
+				if ($datosForm['activar'] == 'si') {
+					$datosForm['textarea'] = '';
+				}
+			} else {
+				$datosForm['textarea'] = 'disabled="disabled"';
+			}
+
+			
+		}
+			$conta++;
+			endforeach; 
+		?>
+			<li id="finalizado">
+				<?php 
+					switch ($estado) {
+					    case '77' :
+				?>
+				<div class="izq left">
+					</div>
+					<div class="der left">
+						<div class="title">Aprobado</div>
+						<a class="toOvalo" style="line-height: 44px; font-size: 56px;">
+							<div class="classFinal" style="color:#0064B8;">
+								<span class="glyphicon glyphicon-ok"></span>							
+							</div>
+						</a>				
+					</div>
+					<div class="clearfix"></div>				
+				<?php
+					        break;
+					    case '88' :
+				?>
+				<div class="izq left">
+					</div>
+					<div class="der left">
+						<div class="title">Anulado</div>
+						<a class="toOvalo" style="line-height: 44px; font-size: 56px;">
+							<div class="classFinal" style="color:#4F4F4F;">
+								<span class="glyphicon glyphicon-remove"></span>							
+							</div>
+						</a>				
+					</div>
+					<div class="clearfix"></div>				
+				<?php
+					        break;
+					    case '99' :
+				?>
+				<div class="izq left">
+					</div>
+					<div class="der left">
+						<div class="title">Rechazado</div>
+						<a class="toOvalo" style="line-height: 44px; font-size: 56px;">
+							<div class="classFinal" style="color:#E65D11;">
+								<span class="glyphicon glyphicon-ban-circle"></span>							
+							</div>
+						</a>				
+					</div>
+					<div class="clearfix"></div>				
+				<?php
+					        break;
+					}
+				?>
+			</li>		
+		</ul>
+	</div>
+</div>
+<!-- /////etapa fin -->
+
+			<!-- inicio ventana modal -->
+			<div class="modal" id="myModal">
+				<div class="modal-dialog">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			          <h4 class="modal-title">Titulo</h4>
+			        </div>
+			        <div class="modal-body">
+						<p>Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Beatae eaque facilis suscipit repellendus harum laborum a cupiditate dolorum quis ea enim vel aliquid praesentium perspiciatis minima debitis ut exercitationem quam!</p>
+			        </div>
+			        <div class="modal-footer">
+			          <a id="cerrarModal" href="#" data-dismiss="modal" class="btn btn-xs btn-success" style="font-size: 20px;">Cerrar</a>
+			        </div>
+			      </div>
+			    </div>
+			</div>
+			<!-- fin ventana modal -->
+<?php 
+
+	if (!isset($datosForm)) {
+		$datosForm['botones'] = '';
+	}
+	$this->load->view('contenidos/pendiente/formulario_solicitud_view',$datosForm);
+?>
+<script src="<?php echo base_url(); ?>assets/template/tpl2-sb/js/jquery.blockUI.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.populate.js"></script>
+<script>
+	$(document).ready(function() {
+		/*
+		$( '#cerrarModal' ).click(function(){
+			window.location = localStorage.getItem('url');
+		});
+		*/
+
+
+		$('#myModal').on('hidden', function () {
+		    // do something…
+		    window.location = localStorage.getItem('url');
+		})
+
+
+		$( '.accion' ).click(function(){
+			var p_id_solicitud = "<?php echo $this->uri->segment(3); ?>";
+			var p_correlativo = "0";
+			var p_etapa = "<?php echo $this->uri->segment(4); ?>";
+			var p_visualiza = "null";//revizar si queda en la base de datos con valor null(no string)
+			
+			var meses = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+			var f=new Date();
+			var p_inicio  = f.getDate() +'/'+ meses[f.getMonth()] + "/" + f.getFullYear();	
+			//var p_inicio = "sysdate";//revizar si se ingresa el dia actual en la base de datos
+			
+			var p_termino = "null";
+			var p_responsable1 = "null";
+			var p_responsable2 = "null";
+			var p_accion = $(this).val();
+			var p_observacion = $('#sol_observ_jefe_dest').val();
+			var p_id_flujo = "<?php echo $this->uri->segment(6); ?>";
+			var p_dot_teor_destino = $('#sol_dot_teo_dest').val();
+			var p_dot_mae_destino = $('#sol_dot_teo_dest').val();
+			var p_pend_egre_destino = $('#sol_dot_mae_dest').val();
+			var p_pend_ingre_destino = $('#sol_tras_pend_ingreso_dest').val();
+
+			//out p_respon_etapa
+			//out p_correo_respon
+			
+			$.ajax({//inicio ajax
+				type:"POST",
+				url :"<?php echo site_url(); ?>etapa/insertLog",
+				dataType:"json",
+				//timeout : 10000,
+				data:{
+					p_id_solicitud : 		p_id_solicitud,
+					p_correlativo : 		p_correlativo,
+					p_etapa : 				p_etapa,
+					p_visualiza : 			p_visualiza,
+					p_inicio : 				p_inicio,
+					p_termino : 			p_termino,
+					p_responsable1 : 		p_responsable1,
+					p_responsable2 : 		p_responsable2,
+					p_accion : 				p_accion,
+					p_observacion : 		p_observacion,
+					p_id_flujo : 			p_id_flujo,
+					p_dot_teor_destino : 	p_dot_teor_destino,
+					p_dot_mae_destino : 	p_dot_mae_destino,
+					p_pend_egre_destino : 	p_pend_egre_destino,
+					p_pend_ingre_destino : p_pend_ingre_destino
+				},
+	            beforeSend : function (){
+	                $.blockUI({
+	                    fadeIn : 0,
+	                    fadeOut : 0,
+	                    showOverlay : true,
+	                    message: '<h1><img src="<?php echo site_url(); ?>assets/template/tpl-sb/img/ajax-loader.gif" /><br />Espere un momento...</h1>'
+	                });
+	            },				
+				success: function(dato){
+					//console.log(dato);
+					//console.log(dato.comuna);
+					var urlRedirec = "<?php echo site_url(); ?>traslado/pendiente";
+					var htmlBtnCerrar = '<a class="btn btn-success" href="'+urlRedirec+'" style="font-size: 20px;">Cerrar</a>';
+					$('.close').html('');
+
+					if (dato[0]=='FIN') {
+						$( '.modal-footer' ).html(htmlBtnCerrar);
+						switch(dato[1]) {
+						case '77':
+							var htmlEtapaTitle = 'Información etapa: Se envía mail a responsable';
+							var htmlContent = '';
+							htmlContent += '<h2>Nombre del responsable</h2>';
+							htmlContent += '<p>Traslado Aprobado</p>';
+							htmlContent += '<h2>Correo del responsable</h2>';
+							htmlContent += '<p>contenido1</p>';
+							$( '.modal-title' ).html(htmlEtapaTitle);
+							$( '.modal-body' ).html(htmlContent);									
+							$('#myModal').modal({show:true});	
+							break;
+						case '88':
+							var htmlEtapaTitle = 'Información etapa: Se envía mail a responsable';
+							var htmlContent = '';
+							htmlContent += '<h2>Nombre del responsable</h2>';
+							htmlContent += '<p>Traslado Anulado</p>';
+							htmlContent += '<h2>Correo del responsable</h2>';
+							htmlContent += '<p>contenido2</p>';
+							$( '.modal-title' ).html(htmlEtapaTitle);
+							$( '.modal-body' ).html(htmlContent);	
+							$( '#cerrarModal' ).attr('href',url);								
+							$('#myModal').modal({show:true});	
+							break;
+						case '99':
+							var htmlEtapaTitle = 'Información etapa: Se envía mail a responsable';
+							var htmlContent = '';
+							htmlContent += '<h2>Nombre del responsable</h2>';
+							htmlContent += '<p>Traslado Rechazado</p>';
+							htmlContent += '<h2>Correo del responsable</h2>';
+							htmlContent += '<p>contenido3</p>';
+							$( '.modal-title' ).html(htmlEtapaTitle);
+							$( '.modal-body' ).html(htmlContent);									
+							$('#myModal').modal({show:true});	
+							break;
+						}						
+					} else {
+						var htmlEtapaTitle = 'Información etapa: Se envía mail a responsable';
+						var htmlContent = '';
+						htmlContent += '<h2>Nombre del responsable</h2>';
+						htmlContent += '<p>'+dato[0]+'</p>';
+						htmlContent += '<h2>Correo del responsable</h2>';
+						htmlContent += '<p>'+dato[1]+'</p>';
+						$( '.modal-title' ).html(htmlEtapaTitle);
+						$( '.modal-body' ).html(htmlContent);									
+						$('#myModal').modal({show:true});	
+					}
+
+				},
+                complete : function (){
+                    $.unblockUI();
+                },			
+				error: function(xhr, ajaxOptions, thrownError) {
+				msg = "A ocurridoff un error ";
+				console.log(msg+" "+xhr.status + " " + xhr.statusText);
+				}
+			}).done(function() {
+				$.ajax({//inicio ajax
+					type:"POST",
+					url :"<?php echo site_url(); ?>etapa/goEtapa",
+					dataType:"json",
+					//timeout : 10000,
+					data:{
+						solicitud : "<?php echo $this->uri->segment(3); ?>"
+					},
+		            beforeSend : function (){
+		                $.blockUI({
+		                    fadeIn : 0,
+		                    fadeOut : 0,
+		                    showOverlay : true,
+		                    message: '<h1><img src="<?php echo site_url(); ?>assets/template/tpl-sb/img/ajax-loader.gif" /><br />Espere un momento...</h1>'
+		                });
+		            },					
+					success: function(dato){
+						//console.log(dato);
+						//SST.WF_KEY, SST.ETAPA_ACTUAL, SST.ID_FLUJO
+						//console.log(dato[0].WF_KEY);
+						//window.location="http://www.cristalab.com";
+						//window.location="<?php echo site_url(); ?>etapa/historico/"+dato[0].WF_KEY+"/"+dato[0].ETAPA_ACTUAL+"/"+dato[0].ID_FLUJO;
+						var goNewEtapa="<?php echo site_url(); ?>etapa/historico/"+dato[0].WF_KEY+"/"+dato[0].ETAPA_ACTUAL+"/"+dato[0].CORRELATIVO+"/"+dato[0].ID_FLUJO;
+						localStorage.setItem('url', goNewEtapa);
+						//localStorage.getItem('url');
+												
+						
+					//console.log(dato.comuna);
+					},
+	                complete : function (){
+	                    $.unblockUI();
+	                },				
+					error: function(xhr, ajaxOptions, thrownError) {
+					msg = "A ocurridoff un error ";
+					console.log(msg+" "+xhr.status + " " + xhr.statusText);
+					}
+				});//fin ajax
+			});
+		});
+		//alert(34234);
+		/*
+		$(window).resize(function() {
+			var alto = $(window).height() - 100;
+			alto = alto + 'px';
+			$('.contenedor_frm').css('height',alto);			 
+		});
+		*/
+	});
+</script>

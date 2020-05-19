@@ -1,0 +1,129 @@
+
+
+body{
+    /*background-image:url("../img/colbg.png");*/
+    background-repeat:repeat-x;
+    overflow-y:auto;
+}
+
+.logotipo{
+	position:absolute;
+	top:-110px;
+	left:-160px;
+}
+
+.dates{
+	background: #F2F2F2;
+	width: 344px;
+	padding: 20px 20px 28px 20px ;
+	margin:14% auto;
+	position:relative;
+}
+
+.dates h1{
+	font-size: 28px;
+	text-align: left;
+	color: #37C0ED;
+	font-weight: 100;
+	
+}
+
+.datos{
+	border: none;
+	width: 240px;
+	height: 24px;
+}
+
+.dates label{
+	display: block;
+	font-size: 1em;
+	margin-bottom: 0px;
+	margin-top: 8px;
+	
+}
+
+button.sharp{
+    -webkit-border-radius:0px;
+        -moz-border-radius:0px;
+            border-radius:0px;
+}
+
+i.up{
+	margin-top: 2px;
+}
+
+.release{
+	color: #a4a4a4;
+	margin-right: 64px;
+}
+
+.entrarlogo{
+	border: none;
+	background: url(../img/entrar.png) no-repeat;
+	color: #fff;
+	width: 80px;
+	height: 80px;
+	font-size: 1.4em;
+	font-weight: 250;
+	text-align: center;
+}
+.entrarlogo:hover{
+	color: #fff;
+	font-weight: 300;
+}
+
+.alerta{
+	position: absolute;
+	width: 328px;
+	text-align: left;
+	bottom:-68px;
+	right:2px;
+
+}
+
+div.error404{
+
+    width: 550px;
+    height: 300px;
+    padding: 5px;
+    margin: 12% auto;
+    background-color: #F2DEDE;
+    border:2px solid #EED3D7;
+    display: block;
+    position: relative;
+
+}
+
+div.error404 h1{
+	display: block;
+	position: absolute;
+	top: -34px;
+	left: 0;
+	font-weight: 100;
+}
+
+a.inicio{
+	position: absolute;
+	bottom: 10px;
+	left: 190px;
+}
+
+span.plataforma{
+	font-size:18px;
+	margin-bottom: 18px;
+	display: inline-block;
+	font-weight: 200;
+}
+
+h1.empresas{
+	position:absolute;
+	right:0;
+	top:-40px;
+	font-size:40px;
+	color:#000;
+	font-weight:400;
+	
+	
+}
+
+

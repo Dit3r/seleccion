@@ -1,0 +1,339 @@
+.navbar-fixed-top {
+	border-width: 0;
+	top: 0;
+}
+.navbar-inverse {
+	background-color: #c1d528;
+	border: medium none;
+}
+.form-group {
+    margin-bottom: 0px;
+}
+.form-control {
+	background-color: #ffffff;
+	background-image: none;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	color: #6d6666;
+	display: block;
+	/*font-family: 'Trebuchet MS', Helvetica, sans-serif ;*/
+	font-size: 11px;
+	height: 20px;
+	line-height: 1.42857;
+	padding: 2px;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+	width: 100%;
+}
+
+#wrap {
+    margin-bottom: 50px;
+    margin-top: 0;
+}
+.form_derch {
+	width: 800px;
+}
+#frm_solicitud h4 {
+	border-bottom: 1px solid #C0C0C0;
+	color: #4CAE4C;
+	font-size: 16px;
+	margin-bottom: 2px;
+	margin-top: 5px;
+	padding-bottom: 3px;
+	padding-top: 5px;
+}
+#frm_solicitud h4 span {
+	display: inline-block;
+	padding-right: 22px;
+}
+#frm_solicitud .tituform {
+	padding-left: 9px;
+}
+.contenedor_frm {
+  margin-left: auto;
+  margin-right: auto;
+}
+.form_solcitudes {
+  margin: 0 auto;
+  width: 825px;
+}
+.fila {
+    background: none repeat scroll 0 0 #d4d4d4;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/*ovalos*/
+.circle-text {
+    width:140px;
+}
+.circle-text:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height:0;
+    padding-bottom: 50%;
+    background: #4cae4c;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.destacado.circle-text:after {
+    background: #FFDB00;
+}
+.destacadoRechazado.circle-text:after {
+    background: #E8240C;
+}
+.circle-text div {
+    float:left;
+    width:100%;
+    padding-top:50%;
+    line-height:1em;
+    margin-top:-0.5em;
+    text-align:center;
+    color:white;
+}
+.destacado.circle-text div {
+    color:black;
+}
+#etapa .title {
+	text-align: center;
+	width: 100%;
+	margin-top: 10px;
+	font-size: 13px;
+}
+#etapa .title.destacadoRechazado {
+	font-weight: bold;
+}
+#etapa .blocketapa.destacadoRechazado {
+	position: relative;
+	top: 20px;
+}
+#etapa .title.destacadoAprobado {
+	font-weight: bold;
+}
+#etapa .blocketapa.destacadoAprobado {
+	position: relative;
+	top: 20px;
+}
+#etapa div.izq.left {
+	/* padding-top: 5em;*/
+	float: left;
+}
+#etapa div.der.left {
+	float: left;
+	padding: 0 4px;
+}
+#etapa div.izq.left span {
+    display: inline-block;
+    position: relative;
+    right: 1px;
+    top: 50px;
+}
+#etapa.row div.col-md-24 ul.list-inline li {
+	padding-left: 0;
+	padding-right: 0;
+}
+#etapa .list-inline > li {
+  display: inline-block;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#etapa .blocketapa .circle-text > div.single {
+	padding-top: 32px;
+}
+#etapa .blocketapa .circle-text > div.couple {
+	padding-top: 24px;
+}
+
+
+
+
+
+#flujo_completo {
+    padding-top: 30px;
+}
+#flujo_completo .circle-text {
+    width:70px;
+}
+#flujo_completo .circle-text:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height:0;
+    padding-bottom: 50%;
+    background: #4cae4c;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+#flujo_completo .destacado.circle-text:after {
+    background: #FFDB00;
+}
+#flujo_completo .circle-text div {
+    float:left;
+    width:100%;
+    padding-top:50%;
+    line-height:1em;
+    margin-top:-0.5em;
+    text-align:center;
+    color:white;
+}
+#flujo_completo .destacado.circle-text div {
+    color:black;
+}
+#flujo_completo .title {
+	text-align: center;
+	width: 100%;
+	margin-top: 30px;
+}
+#flujo_completo div.izq.left {
+	padding-top: 5em;
+}
+#flujo_completo.row div.col-md-24 ul.list-inline li {
+	padding-left: 0;
+	padding-right: 0;
+}
+#flujo_completo .circle-text > div {
+	padding: 20%;
+}
+#flujo_completo ul.list-inline .left span.glyphicon.glyphicon-arrow-right {
+	color: #000000;
+	position: relative;
+	top: 9px;
+}
+#etapa ul > li:first-child {margin-left: 15px;}
+
+/*:::::::::ovalos para pendientes:::::::::::::::*/
+.oval {  
+    width: 120px;  
+    height: 60px;  
+    background: #C1D528;  
+    -moz-border-radius: 100px / 50px;  
+    -webkit-border-radius: 100px / 50px;  
+    border-radius: 100px / 50px; 
+}
+.oval {
+    text-align:center;
+    display: table;
+    text-align: center;
+}
+.contenidoOvalo {
+    display: table-cell;
+    vertical-align: middle;
+}
+.ovaloHover { 
+	background-color: #c1d528; 
+	cursor: pointer;
+}
+#etapa li a,
+#etapa li a:hover {
+	text-decoration: none;
+	color: #3E2AD7;
+	font-weight: bold;
+	font-size: 12px;
+}
+.oval.seleccionado.destacado {
+	background-color: #ffdb00;
+}
+.blocketapa.seleccionado .oval {
+	background-color: #C1D528;
+	border: 3px solid #4cae4c;
+	-webkit-box-shadow: 2px 2px 3px 2px #d9d9d9;
+	box-shadow: 2px 2px 3px 2px #B3ADAD;	
+}
+.blocketapa.seleccionado .title {
+	font-weight: bold;
+}
+.blocketapa.seleccionado .destacado.oval {
+	border: 3px solid #4cae4c;
+	background-color: #00A7ED;
+}
+.blocketapa .oval:HOVER {
+	border: 3px solid #4cae4c;
+}
+.destacado.oval {
+	background-color: #00A7ED;
+	color: #FFFFFF;
+	text-shadow: 2px 2px 2px #666666;
+}
+.nroSolicitud {
+	font-size: 18px;
+}
+form label.error {
+	color: #e65d11;
+	position: relative;
+	top: -10px;
+}
+
+#ui-datepicker-div {
+  /*font-family: 'Trebuchet MS', Helvetica, sans-serif ;*/
+  font-size: 80%;
+}
+.ui-datepicker-month,
+.ui-datepicker-year {
+	/*font-family: 'Trebuchet MS', Helvetica, sans-serif ;*/
+}
+.btn-success {
+	color: #ffffff;
+	background-color: #c1d528;
+	border-color: #c1d528;
+}
+.inputModal {
+	height: 20px;
+	box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+	box-sizing: border-box;
+	width: 90px;
+	background-color: rgb(255, 255, 255);
+	background-image: none;
+	border-bottom-color: rgb(204, 204, 204);
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-image-outset: 0px;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-color: rgb(204, 204, 204);
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: rgb(204, 204, 204);
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: rgb(204, 204, 204);
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-top-style: solid;
+	border-top-width: 1px;	
+}
+.inputModal[disabled], .inputModal[readonly], .inputModal {
+	cursor: not-allowed;
+	background-color: #eeeeee;
+	opacity: 1;
+}
+
+input.calendario {
+  background: url("../img/calendar.png") no-repeat scroll 94px center #fff;
+}
+.btn.btn-info {
+	background-color: #00a7ed;
+	border-color: #46b8da;
+	color: #ffffff;
+}
+.btn.btn-info:hover {
+	background-color: #5bc0de;
+	border-color: #46b8da;
+	color: #ffffff;
+}
+#frm_solicitud_traslado_ori button.btn-info,
+#frm_solicitud_traslado_ori a.btn-info {
+	font-size: 11px;
+}
+#frm_solicitud_traslado_ori span.titleSeccionForm {
+	font-family: "Myriad Pro";
+}
+.accion {
+	display:none;
+}

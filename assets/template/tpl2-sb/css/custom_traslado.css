@@ -1,0 +1,49 @@
+.tipsy { font-size: 18px; }
+.tipsy-inner { background-color: #04a2e5;}
+.tipsy-arrow { position: absolute; background: url('../img/tipsy-blue.gif') no-repeat top left; width: 9px; height: 5px; }
+#show_reg_monitor a {
+    color: #00B6EB;
+}
+#show_reg_monitor a:hover {
+    color: #00A4EB;
+}
+#myModal.modal a.btn.btn-success {
+	color: white;
+}
+#myModal.modal .modal-title {
+	color: #aec123;
+}
+#frm_filtrar .col-md-6.fechas {
+	padding-top: 10px;
+}
+#frm_filtrar input, #frm_filtrar select {
+	margin-top: 0;
+}
+#tbl_logs {
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+}
+#modal_edit.modal-body {
+	padding-top: 0px;
+	position: relative;
+}
+#modal_edit .modal-footer {
+	border: none;
+	text-align: right;
+	padding-top: 0px;
+	padding-bottom: 13px;
+	padding-right: 0;
+	width: 549px;
+}
+/**************FILTRO TRASLADO****************/
+#blk_filtro {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+#blk_filtro .borde-right{
+	border-right: 1px solid rgb(192, 192, 192);
+}
+
+/***********filtro top******************/
+#blk_filtro .form-control {
+  margin: 0;
+}

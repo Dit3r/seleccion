@@ -1,0 +1,450 @@
+
+------------------------------:::HORA--> 14/11/2017 12:33:56:::
+
+			Select
+			DISTINCT jer_cc CODUNIDAD,
+			saca_desc_unidad (jer_compania,jer_cc) NOMBUNIDAD,
+			jer_compania EMPRESA
+			From jer_cui_dependencia dep,jer_unidad uni
+			Where (	cui_sup like
+						(
+							Select fn_nivel_cui(emp.jer_unidad)|| '%'
+							From jer_empleado emp, jer_unidad uni
+							Where (jer_rut = 8939069 )
+							And emp.jer_unidad = uni.jer_unidad
+						)
+						Or
+						(8939069 = (	
+												Select responsable1_param
+												From sel_wf_parametros
+												Where tipo_param   = 'RESPON' and
+												codigo_param = 'JEXP'
+											)
+											And pkg_seleccion.valida_total_exp_dermo_local(200,34,jer_cc) > 0
+						)
+													
+	                    or
+	                    ( 8939069 =  (
+	                              select responsable1_param 
+	                                 from sel_wf_parametros
+	                              where tipo_param   = 'RESPON' and 
+	                               codigo_param = 'JEXM'
+	                               )  
+	                       and
+	                              pkg_seleccion.valida_total_exp_dermo_local(200,34,jer_cc) > 0
+	                    )					
+													
+													
+					)
+			And uni.jer_tipo_unidad = 1
+			And uni.jer_compania = 34
+			And uni.jer_feceli is null
+			And dep.cui_dep = uni.jer_unidad
+			Order By 3,1
+		
+------------------------------
+
+------------------------------:::HORA--> 14/11/2017 12:53:33:::
+
+			Select
+			DISTINCT jer_cc CODUNIDAD,
+			saca_desc_unidad (jer_compania,jer_cc) NOMBUNIDAD,
+			jer_compania EMPRESA
+			From jer_cui_dependencia dep,jer_unidad uni
+			Where (	cui_sup like
+						(
+							Select fn_nivel_cui(emp.jer_unidad)|| '%'
+							From jer_empleado emp, jer_unidad uni
+							Where (jer_rut = 11975076 )
+							And emp.jer_unidad = uni.jer_unidad
+						)
+						Or
+						(11975076 = (	
+												Select responsable1_param
+												From sel_wf_parametros
+												Where tipo_param   = 'RESPON' and
+												codigo_param = 'JEXP'
+											)
+											And pkg_seleccion.valida_total_exp_dermo_local(0,34,jer_cc) > 0
+						)
+													
+	                    or
+	                    ( 11975076 =  (
+	                              select responsable1_param 
+	                                 from sel_wf_parametros
+	                              where tipo_param   = 'RESPON' and 
+	                               codigo_param = 'JEXM'
+	                               )  
+	                       and
+	                              pkg_seleccion.valida_total_exp_dermo_local(0,34,jer_cc) > 0
+	                    )					
+													
+													
+					)
+			And uni.jer_tipo_unidad = 1
+			And uni.jer_compania = 34
+			And uni.jer_feceli is null
+			And dep.cui_dep = uni.jer_unidad
+			Order By 3,1
+		
+------------------------------
+
+------------------------------:::HORA--> 14/11/2017 12:53:41:::
+
+			Select
+			DISTINCT jer_cc CODUNIDAD,
+			saca_desc_unidad (jer_compania,jer_cc) NOMBUNIDAD,
+			jer_compania EMPRESA
+			From jer_cui_dependencia dep,jer_unidad uni
+			Where (	cui_sup like
+						(
+							Select fn_nivel_cui(emp.jer_unidad)|| '%'
+							From jer_empleado emp, jer_unidad uni
+							Where (jer_rut = 11975076 )
+							And emp.jer_unidad = uni.jer_unidad
+						)
+						Or
+						(11975076 = (	
+												Select responsable1_param
+												From sel_wf_parametros
+												Where tipo_param   = 'RESPON' and
+												codigo_param = 'JEXP'
+											)
+											And pkg_seleccion.valida_total_exp_dermo_local(0,11,jer_cc) > 0
+						)
+													
+	                    or
+	                    ( 11975076 =  (
+	                              select responsable1_param 
+	                                 from sel_wf_parametros
+	                              where tipo_param   = 'RESPON' and 
+	                               codigo_param = 'JEXM'
+	                               )  
+	                       and
+	                              pkg_seleccion.valida_total_exp_dermo_local(0,11,jer_cc) > 0
+	                    )					
+													
+													
+					)
+			And uni.jer_tipo_unidad = 1
+			And uni.jer_compania = 11
+			And uni.jer_feceli is null
+			And dep.cui_dep = uni.jer_unidad
+			Order By 3,1
+		
+------------------------------
+
+------------------------------:::HORA--> 14/11/2017 12:53:43:::
+
+			Select
+			DISTINCT jer_cc CODUNIDAD,
+			saca_desc_unidad (jer_compania,jer_cc) NOMBUNIDAD,
+			jer_compania EMPRESA
+			From jer_cui_dependencia dep,jer_unidad uni
+			Where (	cui_sup like
+						(
+							Select fn_nivel_cui(emp.jer_unidad)|| '%'
+							From jer_empleado emp, jer_unidad uni
+							Where (jer_rut = 11975076 )
+							And emp.jer_unidad = uni.jer_unidad
+						)
+						Or
+						(11975076 = (	
+												Select responsable1_param
+												From sel_wf_parametros
+												Where tipo_param   = 'RESPON' and
+												codigo_param = 'JEXP'
+											)
+											And pkg_seleccion.valida_total_exp_dermo_local(0,34,jer_cc) > 0
+						)
+													
+	                    or
+	                    ( 11975076 =  (
+	                              select responsable1_param 
+	                                 from sel_wf_parametros
+	                              where tipo_param   = 'RESPON' and 
+	                               codigo_param = 'JEXM'
+	                               )  
+	                       and
+	                              pkg_seleccion.valida_total_exp_dermo_local(0,34,jer_cc) > 0
+	                    )					
+													
+													
+					)
+			And uni.jer_tipo_unidad = 1
+			And uni.jer_compania = 34
+			And uni.jer_feceli is null
+			And dep.cui_dep = uni.jer_unidad
+			Order By 3,1
+		
+------------------------------
+
+------------------------------:::HORA--> 14/11/2017 12:53:53:::
+
+			Select
+			DISTINCT jer_cc CODUNIDAD,
+			saca_desc_unidad (jer_compania,jer_cc) NOMBUNIDAD,
+			jer_compania EMPRESA
+			From jer_cui_dependencia dep,jer_unidad uni
+			Where (	cui_sup like
+						(
+							Select fn_nivel_cui(emp.jer_unidad)|| '%'
+							From jer_empleado emp, jer_unidad uni
+							Where (jer_rut = 11975076 )
+							And emp.jer_unidad = uni.jer_unidad
+						)
+						Or
+						(11975076 = (	
+												Select responsable1_param
+												From sel_wf_parametros
+												Where tipo_param   = 'RESPON' and
+												codigo_param = 'JEXP'
+											)
+											And pkg_seleccion.valida_total_exp_dermo_local(0,34,jer_cc) > 0
+						)
+													
+	                    or
+	                    ( 11975076 =  (
+	                              select responsable1_param 
+	                                 from sel_wf_parametros
+	                              where tipo_param   = 'RESPON' and 
+	                               codigo_param = 'JEXM'
+	                               )  
+	                       and
+	                              pkg_seleccion.valida_total_exp_dermo_local(0,34,jer_cc) > 0
+	                    )					
+													
+													
+					)
+			And uni.jer_tipo_unidad = 1
+			And uni.jer_compania = 34
+			And uni.jer_feceli is null
+			And dep.cui_dep = uni.jer_unidad
+			Order By 3,1
+		
+------------------------------
+
+------------------------------:::HORA--> 14/11/2017 12:54:41:::
+
+			Select
+			DISTINCT jer_cc CODUNIDAD,
+			saca_desc_unidad (jer_compania,jer_cc) NOMBUNIDAD,
+			jer_compania EMPRESA
+			From jer_cui_dependencia dep,jer_unidad uni
+			Where (	cui_sup like
+						(
+							Select fn_nivel_cui(emp.jer_unidad)|| '%'
+							From jer_empleado emp, jer_unidad uni
+							Where (jer_rut = 8939069 )
+							And emp.jer_unidad = uni.jer_unidad
+						)
+						Or
+						(8939069 = (	
+												Select responsable1_param
+												From sel_wf_parametros
+												Where tipo_param   = 'RESPON' and
+												codigo_param = 'JEXP'
+											)
+											And pkg_seleccion.valida_total_exp_dermo_local(200,34,jer_cc) > 0
+						)
+													
+	                    or
+	                    ( 8939069 =  (
+	                              select responsable1_param 
+	                                 from sel_wf_parametros
+	                              where tipo_param   = 'RESPON' and 
+	                               codigo_param = 'JEXM'
+	                               )  
+	                       and
+	                              pkg_seleccion.valida_total_exp_dermo_local(200,34,jer_cc) > 0
+	                    )					
+													
+													
+					)
+			And uni.jer_tipo_unidad = 1
+			And uni.jer_compania = 34
+			And uni.jer_feceli is null
+			And dep.cui_dep = uni.jer_unidad
+			Order By 3,1
+		
+------------------------------
+
+------------------------------:::HORA--> 14/11/2017 13:31:04:::
+
+			Select
+			DISTINCT jer_cc CODUNIDAD,
+			saca_desc_unidad (jer_compania,jer_cc) NOMBUNIDAD,
+			jer_compania EMPRESA
+			From jer_cui_dependencia dep,jer_unidad uni
+			Where (	cui_sup like
+						(
+							Select fn_nivel_cui(emp.jer_unidad)|| '%'
+							From jer_empleado emp, jer_unidad uni
+							Where (jer_rut = 8939069 )
+							And emp.jer_unidad = uni.jer_unidad
+						)
+						Or
+						(8939069 = (	
+												Select responsable1_param
+												From sel_wf_parametros
+												Where tipo_param   = 'RESPON' and
+												codigo_param = 'JEXP'
+											)
+											And pkg_seleccion.valida_total_exp_dermo_local(0,41,jer_cc) > 0
+						)
+													
+	                    or
+	                    ( 8939069 =  (
+	                              select responsable1_param 
+	                                 from sel_wf_parametros
+	                              where tipo_param   = 'RESPON' and 
+	                               codigo_param = 'JEXM'
+	                               )  
+	                       and
+	                              pkg_seleccion.valida_total_exp_dermo_local(0,41,jer_cc) > 0
+	                    )					
+													
+													
+					)
+			And uni.jer_tipo_unidad = 1
+			And uni.jer_compania = 41
+			And uni.jer_feceli is null
+			And dep.cui_dep = uni.jer_unidad
+			Order By 3,1
+		
+------------------------------
+
+------------------------------:::HORA--> 14/11/2017 13:31:12:::
+
+			Select
+			DISTINCT jer_cc CODUNIDAD,
+			saca_desc_unidad (jer_compania,jer_cc) NOMBUNIDAD,
+			jer_compania EMPRESA
+			From jer_cui_dependencia dep,jer_unidad uni
+			Where (	cui_sup like
+						(
+							Select fn_nivel_cui(emp.jer_unidad)|| '%'
+							From jer_empleado emp, jer_unidad uni
+							Where (jer_rut = 8939069 )
+							And emp.jer_unidad = uni.jer_unidad
+						)
+						Or
+						(8939069 = (	
+												Select responsable1_param
+												From sel_wf_parametros
+												Where tipo_param   = 'RESPON' and
+												codigo_param = 'JEXP'
+											)
+											And pkg_seleccion.valida_total_exp_dermo_local(0,41,jer_cc) > 0
+						)
+													
+	                    or
+	                    ( 8939069 =  (
+	                              select responsable1_param 
+	                                 from sel_wf_parametros
+	                              where tipo_param   = 'RESPON' and 
+	                               codigo_param = 'JEXM'
+	                               )  
+	                       and
+	                              pkg_seleccion.valida_total_exp_dermo_local(0,41,jer_cc) > 0
+	                    )					
+													
+													
+					)
+			And uni.jer_tipo_unidad = 1
+			And uni.jer_compania = 41
+			And uni.jer_feceli is null
+			And dep.cui_dep = uni.jer_unidad
+			Order By 3,1
+		
+------------------------------
+
+------------------------------:::HORA--> 14/11/2017 16:51:39:::
+
+			Select
+			DISTINCT jer_cc CODUNIDAD,
+			saca_desc_unidad (jer_compania,jer_cc) NOMBUNIDAD,
+			jer_compania EMPRESA
+			From jer_cui_dependencia dep,jer_unidad uni
+			Where (	cui_sup like
+						(
+							Select fn_nivel_cui(emp.jer_unidad)|| '%'
+							From jer_empleado emp, jer_unidad uni
+							Where (jer_rut = 12263806 )
+							And emp.jer_unidad = uni.jer_unidad
+						)
+						Or
+						(12263806 = (	
+												Select responsable1_param
+												From sel_wf_parametros
+												Where tipo_param   = 'RESPON' and
+												codigo_param = 'JEXP'
+											)
+											And pkg_seleccion.valida_total_exp_dermo_local(200,11,jer_cc) > 0
+						)
+													
+	                    or
+	                    ( 12263806 =  (
+	                              select responsable1_param 
+	                                 from sel_wf_parametros
+	                              where tipo_param   = 'RESPON' and 
+	                               codigo_param = 'JEXM'
+	                               )  
+	                       and
+	                              pkg_seleccion.valida_total_exp_dermo_local(200,11,jer_cc) > 0
+	                    )					
+													
+													
+					)
+			And uni.jer_tipo_unidad = 1
+			And uni.jer_compania = 11
+			And uni.jer_feceli is null
+			And dep.cui_dep = uni.jer_unidad
+			Order By 3,1
+		
+------------------------------
+
+------------------------------:::HORA--> 14/11/2017 17:04:17:::
+
+			Select
+			DISTINCT jer_cc CODUNIDAD,
+			saca_desc_unidad (jer_compania,jer_cc) NOMBUNIDAD,
+			jer_compania EMPRESA
+			From jer_cui_dependencia dep,jer_unidad uni
+			Where (	cui_sup like
+						(
+							Select fn_nivel_cui(emp.jer_unidad)|| '%'
+							From jer_empleado emp, jer_unidad uni
+							Where (jer_rut = 8939069 )
+							And emp.jer_unidad = uni.jer_unidad
+						)
+						Or
+						(8939069 = (	
+												Select responsable1_param
+												From sel_wf_parametros
+												Where tipo_param   = 'RESPON' and
+												codigo_param = 'JEXP'
+											)
+											And pkg_seleccion.valida_total_exp_dermo_local(200,34,jer_cc) > 0
+						)
+													
+	                    or
+	                    ( 8939069 =  (
+	                              select responsable1_param 
+	                                 from sel_wf_parametros
+	                              where tipo_param   = 'RESPON' and 
+	                               codigo_param = 'JEXM'
+	                               )  
+	                       and
+	                              pkg_seleccion.valida_total_exp_dermo_local(200,34,jer_cc) > 0
+	                    )					
+													
+													
+					)
+			And uni.jer_tipo_unidad = 1
+			And uni.jer_compania = 34
+			And uni.jer_feceli is null
+			And dep.cui_dep = uni.jer_unidad
+			Order By 3,1
+		
+------------------------------
