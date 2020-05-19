@@ -38,7 +38,9 @@
 |
 */
 
-$route['default_controller'] = "inicio";
+//$route['default_controller'] = "inicio";
+$route['default_controller'] = 'indexcontrolador';
+//$route['home'] = 'indexcontrolador/home';
 $route['404_override'] = '';
 
 
