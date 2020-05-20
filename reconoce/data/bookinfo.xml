@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookinfo autoFlipSeconds="5" bgColor="#565656" windowColor="#545454" shadow="true" pageWidth="885" pageHeight="885" flipSpeedBoost="80" title="ManualReconocimiento2019OK" author="" zipIcon="content/images/iconZip.gif" exeIcon="content/images/iconExe.gif" companyUrl="http://www.epagecreator.net" companyAddress="" tel="" fitScreenAfterZoom="false" defaultZoomScale="2" autoMoveAfterZoom="false" zoomAfterLoaded="false" hardCover="false" clickToZoom="singleclick" gateway="http://epagecreator.net/share/email.php" shareUrl="index.html" id="ManualReconocimiento2019OK" bookmarkWidth="18" bookmarkHeight="150" bookmarkFontSize="10" rightToLeft="false" autoFlip="false" companyName="" zipUrl="" exeUrl="" fullScreen="false" password="gbCVZnauobZ5" lic="lqelnqOxo6ukZQ==" analyticsUA="" pdfUrl="" thickness="0" mouseWheelZoom="false" showZoomBox="true" bookSize="10" email="" flipArrow="false">
+    <leftmenu showTabBackground="true" visible="true" hideAfterZoom="false">
+        <issues visible="false"></issues>
+        <toc visible="false"></toc>
+        <thumbs visible="true"></thumbs>
+        <email visible="true"></email>
+        <sns visible="false"></sns>
+        <print visible="true"></print>
+        <close visible="false"></close>
+        <download visible="false"></download>
+        <pdf visible="true" singlePage="true" doublePage="true"></pdf>
+        <setting visible="true"></setting>
+        <about visible="false"></about>
+    </leftmenu>
+    <bottommenu iconSameSize="false" showBackground="false" background="content/images/menuBackground.png" visible="true" position="top" autoHideOnFullScreen="true" limitTo100="false" hideAfterZoom="false">
+        <help visible="false"></help>
+        <info visible="true" url=""></info>
+        <zoom visible="true" mode="normal"></zoom>
+        <autoflip visible="false"></autoflip>
+        <search visible="false"></search>
+        <bookmark visible="false"></bookmark>
+        <notes visible="false"></notes>
+        <fullscreen visible="true"></fullscreen>
+        <highlight visible="false"></highlight>
+        <back visible="false"></back>
+        <forward visible="false"></forward>
+        <firstpage visible="true"></firstpage>
+        <prevpage visible="true"></prevpage>
+        <nextpage visible="true"></nextpage>
+        <lastpage visible="true"></lastpage>
+        <sound visible="false"></sound>
+    </bottommenu>
+    <contextmenu></contextmenu>
+    <tooltip showZoomTip="true" showFlipTip="true" bgColor="#000000" fgColor="#ffffff" visible="true"></tooltip>
+    <bottomthumb bgAlpha="0" bgColor="#000000" visible="true"></bottomthumb>
+    <tks>
+        <tk begin="1" end="2" value="1"></tk>
+        <tk begin="3" end="5" value="2"></tk>
+        <tk begin="6" end="10" value="3"></tk>
+        <tk begin="11" end="20" value="4"></tk>
+        <tk begin="21" end="30" value="5"></tk>
+        <tk begin="31" end="40" value="6"></tk>
+        <tk begin="41" end="60" value="7"></tk>
+        <tk begin="61" end="120" value="8"></tk>
+        <tk begin="121" end="0" value="9"></tk>
+    </tks>
+</bookinfo>

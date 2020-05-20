@@ -40,7 +40,7 @@
 
 //$route['default_controller'] = "inicio";
 $route['default_controller'] = 'indexcontrolador';
-//$route['home'] = 'indexcontrolador/home';
+$route['home'] = 'indexcontrolador/inicio';
 $route['404_override'] = '';
 
 

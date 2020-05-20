@@ -1,0 +1,37 @@
+
+<pages preload="true">
+    <page id="1" shadow="true" source="content/pages/page1.jpg" thumb="content/thumbs/page1.jpg"></page>
+    <page id="2" shadow="true" source="content/pages/page2.jpg" thumb="content/thumbs/page2.jpg"></page>
+    <page id="3" shadow="true" source="content/pages/page3.jpg" thumb="content/thumbs/page3.jpg"></page>
+    <page id="4" shadow="true" source="content/pages/page4.jpg" thumb="content/thumbs/page4.jpg"></page>
+    <page id="5" shadow="true" source="content/pages/page5.jpg" thumb="content/thumbs/page5.jpg"></page>
+    <page id="6" shadow="true" source="content/pages/page6.jpg" thumb="content/thumbs/page6.jpg"></page>
+    <page id="7" shadow="true" source="content/pages/page7.jpg" thumb="content/thumbs/page7.jpg"></page>
+    <page id="8" shadow="true" source="content/pages/page8.jpg" thumb="content/thumbs/page8.jpg"></page>
+    <page id="9" shadow="true" source="content/pages/page9.jpg" thumb="content/thumbs/page9.jpg"></page>
+    <page id="10" shadow="true" source="content/pages/page10.jpg" thumb="content/thumbs/page10.jpg"></page>
+    <page id="11" shadow="true" source="content/pages/page11.jpg" thumb="content/thumbs/page11.jpg"></page>
+    <page id="12" shadow="true" source="content/pages/page12.jpg" thumb="content/thumbs/page12.jpg"></page>
+    <page id="13" shadow="true" source="content/pages/page13.jpg" thumb="content/thumbs/page13.jpg"></page>
+    <page id="14" shadow="true" source="content/pages/page14.jpg" thumb="content/thumbs/page14.jpg"></page>
+    <page id="15" shadow="true" source="content/pages/page15.jpg" thumb="content/thumbs/page15.jpg"></page>
+    <page id="16" shadow="true" source="content/pages/page16.jpg" thumb="content/thumbs/page16.jpg"></page>
+    <page id="17" shadow="true" source="content/pages/page17.jpg" thumb="content/thumbs/page17.jpg"></page>
+    <page id="18" shadow="true" source="content/pages/page18.jpg" thumb="content/thumbs/page18.jpg"></page>
+    <page id="19" shadow="true" source="content/pages/page19.jpg" thumb="content/thumbs/page19.jpg"></page>
+    <page id="20" shadow="true" source="content/pages/page20.jpg" thumb="content/thumbs/page20.jpg"></page>
+    <page id="21" shadow="true" source="content/pages/page21.jpg" thumb="content/thumbs/page21.jpg"></page>
+    <page id="22" shadow="true" source="content/pages/page22.jpg" thumb="content/thumbs/page22.jpg"></page>
+    <page id="23" shadow="true" source="content/pages/page23.jpg" thumb="content/thumbs/page23.jpg"></page>
+    <page id="24" shadow="true" source="content/pages/page24.jpg" thumb="content/thumbs/page24.jpg"></page>
+    <page id="25" shadow="true" source="content/pages/page25.jpg" thumb="content/thumbs/page25.jpg"></page>
+    <page id="26" shadow="true" source="content/pages/page26.jpg" thumb="content/thumbs/page26.jpg"></page>
+    <page id="27" shadow="true" source="content/pages/page27.jpg" thumb="content/thumbs/page27.jpg"></page>
+    <page id="28" shadow="true" source="content/pages/page28.jpg" thumb="content/thumbs/page28.jpg"></page>
+    <page id="29" shadow="true" source="content/pages/page29.jpg" thumb="content/thumbs/page29.jpg"></page>
+    <page id="30" shadow="true" source="content/pages/page30.jpg" thumb="content/thumbs/page30.jpg"></page>
+    <page id="31" shadow="true" source="content/pages/page31.jpg" thumb="content/thumbs/page31.jpg"></page>
+    <page id="32" shadow="true" source="content/pages/page32.jpg" thumb="content/thumbs/page32.jpg"></page>
+    <page id="33" shadow="true" source="content/pages/page33.jpg" thumb="content/thumbs/page33.jpg"></page>
+    <page id="34" shadow="true" source="content/pages/page34.jpg" thumb="content/thumbs/page34.jpg"></page>
+</pages>

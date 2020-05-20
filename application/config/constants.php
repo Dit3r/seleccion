@@ -10,6 +10,7 @@ define('MAILUSUARIOTEST', 'jgatica@sb.cl,rtorres@sb.cl');
 define('NOMBREPROYECTO', 'Movilidad de Colaboradores');
 
 
+defined('SHOW_DEBUG_BACKTRACE') or define('SHOW_DEBUG_BACKTRACE', TRUE);
 /*
 |--------------------------------------------------------------------------
 | File and Directory Modes
@@ -23,10 +24,11 @@ define('NOMBREPROYECTO', 'Movilidad de Colaboradores');
 | always be used to set the mode correctly.
 |
 */
-define('FILE_READ_MODE', 0644);
-define('FILE_WRITE_MODE', 0666);
-define('DIR_READ_MODE', 0755);
-define('DIR_WRITE_MODE', 0777);
+defined('FILE_READ_MODE')  or define('FILE_READ_MODE', 0644);
+defined('FILE_WRITE_MODE') or define('FILE_WRITE_MODE', 0666);
+defined('DIR_READ_MODE')   or define('DIR_READ_MODE', 0755);
+defined('DIR_WRITE_MODE')  or define('DIR_WRITE_MODE', 0755);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,18 +39,19 @@ define('DIR_WRITE_MODE', 0777);
 |
 */
 
-define('FOPEN_READ',							'rb');
-define('FOPEN_READ_WRITE',						'r+b');
-define('FOPEN_WRITE_CREATE_DESTRUCTIVE',		'wb'); // truncates existing file data, use with care
-define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE',	'w+b'); // truncates existing file data, use with care
-define('FOPEN_WRITE_CREATE',					'ab');
-define('FOPEN_READ_WRITE_CREATE',				'a+b');
-define('FOPEN_WRITE_CREATE_STRICT',				'xb');
-define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
+define('MAX_CARACT_COM', 1000);
+defined('FOPEN_READ')                           or define('FOPEN_READ', 'rb');
+defined('FOPEN_READ_WRITE')                     or define('FOPEN_READ_WRITE', 'r+b');
+defined('FOPEN_WRITE_CREATE_DESTRUCTIVE')       or define('FOPEN_WRITE_CREATE_DESTRUCTIVE', 'wb'); // truncates existing file data, use with care
+defined('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE')  or define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE', 'w+b'); // truncates existing file data, use with care
+defined('FOPEN_WRITE_CREATE')                   or define('FOPEN_WRITE_CREATE', 'ab');
+defined('FOPEN_READ_WRITE_CREATE')              or define('FOPEN_READ_WRITE_CREATE', 'a+b');
+defined('FOPEN_WRITE_CREATE_STRICT')            or define('FOPEN_WRITE_CREATE_STRICT', 'xb');
+defined('FOPEN_READ_WRITE_CREATE_STRICT')       or define('FOPEN_READ_WRITE_CREATE_STRICT', 'x+b');
 
 //constantes dashboard
 //DOWN_MAX es el numero maximo de apagadas al pos
-define('DOWN_MAX', 3);
+ define('DOWN_MAX', 3);
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
@@ -92,13 +95,17 @@ defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest auto
 
 defined('CLIENTID')                 or define('CLIENTID', 'sb-movilidad');
 defined('CLIENTSECRET')             or define('CLIENTSECRET', 'ce441feb-0dc6-46ab-b9e0-1cd6fc68ea66');
+defined('REDIRECTURI')              or define('REDIRECTURI', 'https://' . $_SERVER['HTTP_HOST'] . '/seleccion/indexcontrolador/index');
 defined('URLAUTHORIZE')             or define('URLAUTHORIZE', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/auth');
 defined('URLACCESSTOKEN')           or define('URLACCESSTOKEN', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/token');
 defined('URLRESOURCEOWNERDETAILS')  or define('URLRESOURCEOWNERDETAILS', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/userinfo');
 defined('URLLOGOUT')                 or define('URLLOGOUT', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/logout');
 defined('URLLOGOUTREDITECTION')     or define('URLLOGOUTREDITECTION', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/logout?redirect_uri=URI_ENCODED_URL');
 
-defined('REDIRECTURI')              or define('REDIRECTURI', 'https://' . $_SERVER['HTTP_HOST'] . '/seleccion/indexcontrolador/index');
+defined('LOGOUTREDIRECT')             or define('LOGOUTREDIRECT', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/logout?redirect_uri=');
+
+
+defined('TOKENACCESO')              or define('TOKENACCESO', '');
 
 
 
