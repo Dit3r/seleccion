@@ -36,7 +36,7 @@ class Indexcontrolador extends CI_Controller
             $this->session->set_userdata('oauth2state', $provider->getState());
             redirect("$authorizationUrl");
         } else {
-            if (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
+            if (empty($_GET['state'])) {
                 $this->session->unset_userdata('oauth2state');
                 exit("Invalid state, <a href='" . base_url() . "/Indexcontrolador'>Volver al login</a>");
             } else {

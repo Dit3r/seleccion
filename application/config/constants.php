@@ -99,10 +99,9 @@ defined('REDIRECTURI')              or define('REDIRECTURI', 'https://' . $_SERV
 defined('URLAUTHORIZE')             or define('URLAUTHORIZE', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/auth');
 defined('URLACCESSTOKEN')           or define('URLACCESSTOKEN', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/token');
 defined('URLRESOURCEOWNERDETAILS')  or define('URLRESOURCEOWNERDETAILS', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/userinfo');
+defined('LOGOUTREDIRECT')             or define('LOGOUTREDIRECT', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/logout?redirect_uri=');
 defined('URLLOGOUT')                 or define('URLLOGOUT', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/logout');
 defined('URLLOGOUTREDITECTION')     or define('URLLOGOUTREDITECTION', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/logout?redirect_uri=URI_ENCODED_URL');
-
-defined('LOGOUTREDIRECT')             or define('LOGOUTREDIRECT', 'https://sso-sac.sb.cl/auth/realms/ESB/protocol/openid-connect/logout?redirect_uri=');
 
 
 defined('TOKENACCESO')              or define('TOKENACCESO', '');
